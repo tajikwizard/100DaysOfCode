@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Изучаем ВСЕ</title>
+
+    <!-- МЫ МОЖЕМ ТАКЖЕ ПИСАТ СТИЛИ ТАКЖЕ -->
+    <style>
+      a {
+        color: blueviolet;
+
+        /* это значить удалить строку внизу у тега а */
+        text-decoration: none;
+      }
+      a:hover {
+        color: red;
+
+        /* это значить поставит строку внизу у тега а */
+        text-decoration: underline;
+      }
+    </style>
+
+    <!-- мы можем еще создат одельный файл для написание сss -->
+    <link rel="stylesheet" href="./styles/project.css" />
+    <link rel="stylesheet" href="./styles//shared.css" />
+  </head>
+  <body>
+    <img class="img" src="./trophy.png" alt="trophy" />
+    <!-- мы можем добавит аттрибуты на html элементах 
+    например для стиля мы исползуем style  -->
+
+    <!-- аттрибуты на html элементах -->
+    <!-- font-family:sans-serif изменит шрифт текста  -->
+    <!-- text-align:center вировнит текст по сентру -->
+    <!-- color: red  изменит свет текста на красний свет -->
+
+    <h1
+      style="
+        font-family: sans-serif;
+        text-align: center;
+        color: rgb(83, 75, 75);
+      "
+    >
+      Abdulaiz Challenge for 27 April 2024 (Day-1)
+    </h1>
+
+    <!-- мы можем добавит класс что бы дать им имя что бы мы могли поставит имя стиля
+    это нужно потому что когда у нас например когда н строничке много параграф
+    тегов и мы хотим стилизироват их с помошью клссов мы можем задоват стил для
+    спесифик тегс -->
+    <p class="first-p">
+      Learn about the basics of web development - specifically dive into HTML &
+      CSS.
+    </p>
+
+    <!-- <a href="https://andoz.tj/">Сайти Андоз</a> так мы создаем ссылки на другие сайти 
+     href="тут ссылка на сайт которого мы хотим перейти" -->
+
+    <p
+      class="second-p"
+      style="font-family: sans-serif; text-align: center; color: firebrick"
+    >
+      I'all achive this goal by divin into more learning resources.
+      <a href="https://andoz.tj/">Сайти Андоз</a>
+    </p>
+
+    <!-- так мы можем соединит странички нажав на это показывает дугую страничку -->
+    <button class="btn"><a href="./pagetwo.html">Другая страничка</a></button>
+  </body>
+</html>

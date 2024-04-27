@@ -1,0 +1,11 @@
+.heading-one {
+  font-family: sans-serif;
+}
+p {
+  font-family: sans-serif;
+}
+.pagetwo-container {
+  border: 1px solid #ccc;
+  /* отступи внутри */
+  padding: 50px;
+}

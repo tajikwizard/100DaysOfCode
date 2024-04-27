@@ -1,0 +1,9 @@
+body {
+  /* это значить изминит задный фон */
+  background-color: antiquewhite;
+
+  /* поставить все что внутри боди в сентре */
+  text-align: center;
+  /* отступи со всех сторон */
+  margin: 150px;
+}

@@ -1,0 +1,26 @@
+.img {
+  /* дарози */
+  width: 300px;
+  /* баланди */
+  height: 200px;
+  border-radius: 50%;
+}
+.first-p {
+  font-family: sans-serif;
+  text-align: center;
+  color: rgb(83, 75, 75);
+  font-weight: bold;
+  font-size: 42px;
+}
+
+.btn {
+  padding: 15px;
+  border: none;
+  background-color: #a42f41;
+  border-radius: 10px;
+}
+
+.btn a {
+  color: white;
+  font-family: sans-serif;
+}
