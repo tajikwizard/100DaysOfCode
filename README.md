@@ -69,3 +69,5 @@ Understanding the structure comprising content, padding, border, and margin.
 - Cannot force line breaks or create block-like structures.
 
 ---
+
+# Day 3: Understanding Layouts & Positioning
