@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day4</title>
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="logo_container">
+        <h1>WebFood</h1>
+      </div>
+      <nav>
+        <ul class="lists">
+          <li>
+            <a href="#">Browse Meals</a>
+            <a href="#">My Orders</a>
+          </li>
+        </ul>
+      </nav>
+
+      <div class="hamburger">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </header>
+    <div class="sidebar">
+      <nav>
+        <ul class="ul">
+          <li>
+            <a href="#">Browse Meals</a>
+          </li>
+          <li>
+            <a href="#">About</a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+    <main class="wrapper">
+      <h1>Browse Our Delicios Meals</h1>
+      <div class="cards">
+        <div class="card">
+          <img src="../assets/miami.jpg" alt="food" />
+          <div class="card_details">
+            <h3>Eisotto with Tiger Bear</h3>
+            <button class="btn">Add to cart</button>
+          </div>
+        </div>
+        <div class="card">
+          <img src="../assets/bali.jpg" alt="food" />
+          <div class="card_details">
+            <h3>Eisotto with Tiger Bear</h3>
+            <button class="btn">Add to cart</button>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <script>
+      const hamburger = document.querySelector(".hamburger");
+      const sidebar = document.querySelector(".sidebar");
+
+      hamburger.addEventListener("click", () => {
+        sidebar.classList.toggle("active");
+      });
+    </script>
+  </body>
+</html>
