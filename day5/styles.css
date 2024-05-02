@@ -1,0 +1,42 @@
+body {
+  display: flex;
+  justify-content: center;
+  font-family: sans-serif;
+  background-color: azure;
+}
+
+.card {
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 350px;
+  box-shadow: 1px 1px 1px 1px lightgray;
+  border-radius: 8px;
+  text-align: center;
+}
+.card_pricing p {
+  padding: 0 15px;
+}
+.price {
+  font-size: 24px;
+  background-color: rgb(120, 217, 228);
+}
+.card_content ul li {
+  line-height: 30px;
+}
+.btn {
+  background-color: white;
+  border: none;
+  font-size: 18px;
+  padding: 5px 100px;
+  margin-bottom: 15px;
+  border: 1px solid lightgray;
+  color: rgb(13, 170, 187);
+  transition: background-color 0.5s;
+}
+.btn:hover {
+  background-color: rgb(13, 170, 187);
+  color: white;
+}
