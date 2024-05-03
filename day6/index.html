@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Day 6 JS</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header">
+      <div class="header-content">
+        <h2>Play Tic, Tac, Toe</h2>
+        <p>Build with HTML, CSS, JavaScript and - of course - lots of love</p>
+      </div>
+    </header>
+
+    <main class="main-container">
+      <div class="game-container">
+        <div class="player player-1">
+          <h3>Player 1</h3>
+          <h2 class="player-name" data-player="player1">Max</h2>
+          <h1>X</h1>
+          <p class="edit">Edit</p>
+        </div>
+        <div class="player player-2">
+          <h3>Player 2</h3>
+          <h2 class="player-name" data-player="player2">Manu</h2>
+          <h1>O</h1>
+          <p class="edit">Edit</p>
+        </div>
+      </div>
+
+      <div class="overlay-container">
+        <h2>Choose You name</h2>
+        <p>Player name</p>
+        <input
+          class="name"
+          type="text"
+          placeholder="Enter name..."
+          id="input"
+        />
+        <div class="btns">
+          <button id="btnCancel" class="btn-cancel">Cancel</button>
+          <button id="btnConfirm" class="btn-confirm">Confirm</button>
+        </div>
+      </div>
+
+      <div class="winner-container">
+        <h1>You won, Max!</h1>
+        <p>Click "Start New Game" above to start a new game!</p>
+      </div>
+
+      <button id="startButton" class="btn">Start New Game</button>
+      <div class="wrapper">
+        <h4>Its you turn Max</h4>
+        <div class="game-board">
+          <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+          </div>
+          <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+          </div>
+          <div class="row">
+            <div class="cell"></div>
+            <div class="cell"></div>
+            <div class="cell"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <script src="./index.js"></script>
+  </body>
+</html>
