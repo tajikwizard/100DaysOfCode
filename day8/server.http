@@ -1,0 +1,13 @@
+GET http://127.0.0.1:8080
+
+###
+GET http://127.0.0.1:8080/products
+
+###
+GET http://127.0.0.1:8080/products?id=2
+
+###
+DELETE http://127.0.0.1:8080/products?id=1
+
+###
+PUT http://127.0.0.1:8080/products?id=35&name=Apple&price=100
