@@ -1,0 +1,7 @@
+###
+GET http://127.0.0.1:8080/products
+
+###
+GET http://127.0.0.1:8080/product?id=2
+###
+DELETE http://127.0.0.1:8080/product?id=3
