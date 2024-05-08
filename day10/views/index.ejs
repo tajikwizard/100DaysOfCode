@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Day 10</title>
+  </head>
+  <body>
+    <div class="restaurants">
+      <% if(numberOfRestaurants === 0){ %>
+      <h1>No Restaurants found!</h1>
+      <% } else { %>
+      <h2>We found <%= numberOfRestaurants %> restaurants</h2>
+      <% } %> <% for(const restaurant of restaurants){ %>
+      <div class="restaurant">
+        <h1><%= restaurant.restaurant %></h1>
+        <p><%= restaurant.address %></p>
+      </div>
+      <% } %>
+    </div>
+  </body>
+</html>
