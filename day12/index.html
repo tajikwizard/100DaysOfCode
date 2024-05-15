@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NODEJS EXPRESS</title>
+  </head>
+  <body>
+    <div class="main">
+      <h3>Add new Product</h3>
+      <form id="addProductForm">
+        <input type="text" id="nameInput" placeholder="Name" required />
+        <input type="number" id="priceInput" placeholder="Price" required />
+        <button type="submit">Add Product</button>
+      </form>
+    </div>
+
+    <div class="del">
+      <h3>Delete the Product with ID</h3>
+      <form id="deleteProduct">
+        <input type="number" id="deleteProductId" required />
+        <button type="submit">DELETE THE PRODUCT</button>
+      </form>
+    </div>
+    <h3>Dispay all the Products</h3>
+    <div class="products_container"></div>
+    <div class="product_by_id">
+      <form id="fetchByIdForm">
+        <h3>Find the Product by ID</h3>
+        <input
+          type="number"
+          id="productIdInput"
+          placeholder="Enter product ID"
+          required
+        />
+        <button type="submit">Fetch Product</button>
+      </form>
+
+      <div class="product_details"></div>
+    </div>
+    <script>
+      const container = document.querySelector(".products_container");
+      const productDetailsContainer =
+        document.querySelector(".product_details");
+
+      async function fetchProducts(url) {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      }
+
+      async function displayProducts() {
+        const products = await fetchProducts(
+          "http://localhost:8080/api/products"
+        );
+        container.innerHTML = ""; // Clear previous entries
+        products.forEach((product) => {
+          const li = document.createElement("li");
+          li.innerText = ` ID:${product.id} NAME:${product.name} PRICE: $${product.price}`;
+          container.appendChild(li);
+        });
+      }
+
+      async function fetchProductById(id) {
+        const response = await fetch(
+          `http://localhost:8080/api/products/${id}`
+        );
+        if (!response.ok) {
+          throw new Error("Product not found");
+        }
+        const data = await response.json();
+        return data;
+      }
+
+      async function displayProductById(event) {
+        event.preventDefault();
+        const productId = document.getElementById("productIdInput").value;
+        try {
+          const product = await fetchProductById(productId);
+          productDetailsContainer.innerHTML = `
+          <h2>Product Details</h2>
+          <p>Name: ${product.name}</p>
+          <p>Price: $${product.price}</p>
+        `;
+        } catch (error) {
+          productDetailsContainer.innerHTML = `<p>${error.message}</p>`;
+        }
+      }
+
+      async function addProduct(event) {
+        event.preventDefault();
+        const name = document.getElementById("nameInput").value;
+        const price = document.getElementById("priceInput").value;
+
+        const response = await fetch("http://localhost:8080/api/products", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ name, price }),
+        });
+
+        if (response.ok) {
+          const newProduct = await response.json();
+          alert(`Product added: ${newProduct.name} $${newProduct.price}`);
+          displayProducts(); // Refresh the product list
+        } else {
+          alert("Failed to add product");
+        }
+      }
+
+      async function deleteProductById(id) {
+        try {
+          const response = await fetch(
+            `http://localhost:8080/api/products/${id}`,
+            {
+              method: "DELETE",
+              headers: {
+                "Content-Type": "application/json",
+              },
+            }
+          );
+
+          if (!response.ok) {
+            throw new Error(`Failed to delete product: ${response.statusText}`); // Throw error for non-200 status codes
+          }
+          console.log("Product deleted successfully!");
+        } catch (error) {
+          console.error("Error deleting product:", error);
+        }
+      }
+
+      document
+        .getElementById("deleteProduct")
+        .addEventListener("submit", async (event) => {
+          event.preventDefault();
+          const deleteProductId =
+            document.getElementById("deleteProductId").value;
+          try {
+            await deleteProductById(deleteProductId);
+            alert("Product deleted successfully!");
+            displayProducts(); // Refresh the product list
+          } catch (error) {
+            console.error("Error deleting product:", error);
+            alert("Failed to delete product!"); // Inform user about the error
+          }
+        });
+      document
+        .getElementById("fetchByIdForm")
+        .addEventListener("submit", displayProductById);
+      document
+        .getElementById("addProductForm")
+        .addEventListener("submit", addProduct);
+
+      displayProducts();
+    </script>
+  </body>
+</html>
