@@ -9,17 +9,20 @@ const app = express();
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.set("view engine", "ejs");
+
+app.use(express.static("public"));
 app.get("/", (req, res) => {
-  res.send("<h2>Hello There</h2>");
+  res.render("home");
 });
 
 app.get("/form", (req, res) => {
   res.send(`
-    <form action="/main" method="POST">
-      <label>Name</label>
-      <input type="text" name="name" required />
-      <button type="submit">Submit</button>
-    </form>
+  <link rel="stylesheet" type="text/css" href="/style.css">
+  <form class="form" action="/main" method="POST">
+    <label>Name</label>
+    <input type="text" name="name" required />
+    <button type="submit">Submit</button>
+  </form>
   `);
 });
 app.post("/main", (req, res) => {
