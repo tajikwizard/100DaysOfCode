@@ -1,0 +1,75 @@
+@import url("https://fonts.googleapis.com/css2?family=Radio+Canada+Big:ital,wght@0,400..700;1,400..700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-family: "Radio Canada Big", sans-serif;
+}
+
+.main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 600px;
+  transform: translate(-50%, -50%);
+  box-shadow: 1px 1px 1px 1px gray;
+  padding: 20px;
+}
+.container h2 {
+  padding: 20px;
+}
+.content {
+  padding: 20px;
+  margin-top: 20px;
+}
+.container p {
+  text-align: justify;
+}
+.content__foter {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+.form select {
+  padding: 10px;
+  width: 40%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Add a slight shadow */
+  border-radius: 8px;
+}
+select {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #4caf50;
+  border-radius: 8px;
+  background-color: #fff;
+  font-size: 18px;
+  color: #333;
+  font-family: "Arial", sans-serif;
+  transition: border-color 0.3s ease;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+}
+
+select:hover {
+  border-color: #45a049;
+}
+
+option {
+  background-color: #fff;
+  color: #333;
+  padding: 10px;
+  font-size: 16px;
+  font-family: "Arial", sans-serif;
+}
+
+.form button {
+  padding: 10px;
+  width: 15%;
+}
