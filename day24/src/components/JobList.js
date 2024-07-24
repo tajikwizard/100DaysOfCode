@@ -4,7 +4,7 @@ import {
     jobListSearchEl,
     jobDetailsContentEl,
     BASE_API_URL,
-    
+    state
     
 } from '../common.js';
 import renderSpinner from './Spinner.js'
@@ -15,8 +15,11 @@ import renderErrorMessage from './Error.js'
 
 //render job list 
 
-export const renderJobList =(jobItems)=>{
-    jobItems.slice(0, 7).forEach(jobItem => {
+export const renderJobList = ()=>{
+    //cleaning prev job list
+    jobListSearchEl.innerHTML = '';
+    
+    state.searchJobItems.slice(0, 7).forEach(jobItem => {
         const newJobItemHTML = `
             <li class="job-item">
                 <a class="job-item__link" href="${jobItem.id}">

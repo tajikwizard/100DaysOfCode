@@ -3,7 +3,8 @@ import {
     searchFormEl,
     jobListSearchEl,
     numberEl,
-    BASE_API_URL
+    BASE_API_URL,
+    state
     
 } from '../common.js';
 
@@ -41,21 +42,24 @@ const submitHandler = async event => {
 
         const response = await fetch(`${BASE_API_URL}/jobs?search=${searchText}`);
         const data = await response.json();
-        
+
             if (!response.ok) {
                 throw new Error('Failed to fetch search results');
             }
             // extract job items
             const { jobItems } = data;
 
+            //update state
+            state.searchJobItems = jobItems
+          
             // remove spinner
             renderSpinner('search')
 
             // render number of results
-            numberEl.textContent = jobItems.length;
+            numberEl.textContent = state.searchJobItems.length;
 
             // render job items in search job list
-            renderJobList(jobItems);
+            renderJobList();
     }catch(error){
         renderSpinner('search')
         renderErrorMessage(error.message);
