@@ -5,7 +5,7 @@ import {
     state
 } from '../common.js';
 import { renderJobList } from './JobList.js';
-
+import renderPaginationButtons from './Pagination.js';
 sortingEl.addEventListener('click',function(event){
     event.preventDefault();
 
@@ -32,6 +32,7 @@ sortingEl.addEventListener('click',function(event){
             return b.relevanceScore - a.relevanceScore;
         });
     }
+    renderPaginationButtons()
     renderJobList();
 
 })

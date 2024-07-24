@@ -25,11 +25,14 @@ export const spinnerJobDetailsEl = document.querySelector(".spinner--job-details
 
 export const BASE_API_URL = 'https://bytegrad.com/course-assets/js/2/api';
 export const DEFAULT_DISPLAY_TIME  = 2000;
-
+export const RESULTS_PER_PAGE = 7;
 
 
 // -- STATE --
 
 export const state = {
-    searchJobItems:[]
+    searchJobItems:[],
+    currentPage: 1,
+    sortOrder: "relevant",
+    bookmarks: []
 }
