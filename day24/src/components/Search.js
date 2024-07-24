@@ -12,7 +12,7 @@ import renderSpinner from './Spinner.js'
 import { renderJobList } from './JobList.js';
 
 // -- SEARCH COMPONENT --
-const submitHandler = event => {
+const submitHandler = async event => {
     // prevent default behavior
     event.preventDefault();
 
@@ -37,15 +37,14 @@ const submitHandler = event => {
     renderSpinner('search');
 
     // fetch search results
-    fetch(`${BASE_API_URL}/jobs?search=${searchText}`)
-        .then(response => {
+    try{
+
+        const response = await fetch(`${BASE_API_URL}/jobs?search=${searchText}`);
+        const data = await response.json();
+        
             if (!response.ok) {
                 throw new Error('Failed to fetch search results');
             }
-
-            return response.json();
-        })
-        .then(data => {
             // extract job items
             const { jobItems } = data;
 
@@ -57,11 +56,41 @@ const submitHandler = event => {
 
             // render job items in search job list
             renderJobList(jobItems);
-        })
-        .catch(error => {
-            renderSpinner('search')
-            renderErrorMessage(error.message);
-        });
+    }catch(error){
+        renderSpinner('search')
+        renderErrorMessage(error.message);
+    }
+
+
+
+    // fetch(`${BASE_API_URL}/jobs?search=${searchText}`)
+    //     .then(response => {
+    //         if (!response.ok) {
+    //             throw new Error('Failed to fetch search results');
+    //         }
+
+    //         return response.json();
+    //     })
+    //     .then(data => {
+    //         // extract job items
+    //         const { jobItems } = data;
+
+    //         // remove spinner
+    //         renderSpinner('search')
+
+    //         // render number of results
+    //         numberEl.textContent = jobItems.length;
+
+    //         // render job items in search job list
+    //         renderJobList(jobItems);
+    //     })
+    //     .catch(error => {
+    //         renderSpinner('search')
+    //         renderErrorMessage(error.message);
+    //     });
+
+
+    
 };
 
 
