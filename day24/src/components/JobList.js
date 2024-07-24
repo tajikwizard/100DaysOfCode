@@ -9,6 +9,7 @@ import {
 } from '../common.js';
 import renderSpinner from './Spinner.js'
 import { jobDetailsRender } from './JobDetails.js';
+import renderErrorMessage from './Error.js'
 
 
 
@@ -66,8 +67,7 @@ const clickHandler = event => {
     fetch(`${BASE_API_URL}/jobs/${id}`)
         .then(response => {
             if (!response.ok) {
-                console.log('Something went wrong');
-                return;
+                throw new Error('Failed to fetch job');
             }
 
             return response.json();
@@ -82,7 +82,13 @@ const clickHandler = event => {
             // render job details
             jobDetailsRender(jobItem)
         })
-        .catch(error => console.log(error));
+        .catch(error => 
+        {
+            renderSpinner('job--details');
+            renderErrorMessage(error.message);
+
+        }
+        );
 };
 
 jobListSearchEl.addEventListener('click', clickHandler);
